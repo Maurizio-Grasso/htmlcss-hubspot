@@ -5,44 +5,146 @@
 }
 
 body {
-
+  font-size: 16px;
+  line-height: 27px;
+  color: #33475b; /* Primary Color*/
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .outer-wrapper {
-  /* Da attivare per passare a layout fixed */
-  /* max-width: 1200px; */
+  /* Da attivare / disattivare per passare da layout full-width a boxed */
+  /* max-width: 1360px; */
   /* margin:auto; */
 }
 
 .inner-wrapper { /* l'area che sarà effettivamente occupata dalla maggior parte degli elementi*/
-  max-width: 1024px;
-  margin:auto;
+  max-width: 1054px;
+  margin: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Posizionamenti */
+
+.float-left {
+  float: left;
+}
+
+/* Layout e Colonne */
+
+.col-one-half {
+  width: 50%;
+}
+
+.col-one-third {
+  width: calc(100% / 3);
 }
 
 
+/*
+######################
+Inizio Regole Tool Bar
+######################
+*/
+
+#tool-bar {
+  height:70px;
+  background-color: blue;
+  border: 1px solid red;
+
+}
+
+/*
+######################
+Fine Regole Tool Bar
+######################
+*/
 
 
 
 /*
-Segnaposto da eliminare al termina della gestione del layout
+######################
+Inizio Regole Header
+######################
 */
 
-.tool-bar {
-  height:50px;
-  background-color: gray;
+
+/* Top Header */
+
+#top-header {
+  height:70px; /* Rimane da gestire l'eccezione del menu che si dispone su due righe*/ 
+  padding-top: 15px;
+  padding-bottom: 15px;
+  /* Rimangono 40px di height a disposizione del contenuto */
 }
 
-header {
-  height:400px;
-  background-color: pink;
+#outer-logo img {
+  height: 40px;
 }
 
-main {
-  height:800px;
-  background-color: green;
+nav#main-menu {
+  text-align: right;
 }
 
-footer {
-  height:100px;
-  background-color: black;
+#outer-nav nav#main-menu ul li {
+  display: inline-block;
+  height:40px;
 }
+#outer-nav nav#main-menu ul li:not(:first-child) {
+  margin-left: 25px; /* margine per tutti gli li ad eccezione del primo*/
+  /* Poi vedi se estendere anche ad altri menu*/
+}
+
+#outer-nav nav#main-menu ul li a {
+  line-height: 40px;
+  text-decoration: none;
+  color:inherit;
+  text-transform: capitalize;
+}
+
+#outer-nav nav#main-menu ul li:not(:nth-child(2)) a::after {
+content: " \25BC"; /* Da sostituire in seguito con font-awesome */
+}
+
+
+
+/* Bottom Header */
+
+#bottom-header {
+  position: relative;
+  height: 500px;
+  padding-top: 50px;
+  background-image: url("../img/jumbotron.png");
+  background-size: auto 100%;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-color: #fef5ee; /* colore simile a quello di sfondo dell'immagine*/
+}
+
+.separator {
+  position: absolute;
+  bottom: 0;
+  height:60px; /* =top bar */
+  width: 100%;
+  background-color: #afebe4;
+  border-top: 2px solid #33475b;
+  border-bottom: 2px solid #33475b;
+}
+
+h1 {
+  font-size: 45px;
+  line-height: 55px;
+  margin-bottom: 20px;
+}
+
+.call-to-action {
+  display: inline-block;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+/*
+######################
+Fine Regole Header
+######################
+*/
