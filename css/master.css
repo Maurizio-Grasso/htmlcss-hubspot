@@ -13,8 +13,8 @@ body {
 
 .outer-wrapper {
   /* Da attivare / disattivare per passare da layout full-width a boxed */
-  /* max-width: 1360px; */
-  /* margin:auto; */
+  max-width: 1600px;
+  margin:auto;
 }
 
 .inner-wrapper { /* l'area che sarà effettivamente occupata dalla maggior parte degli elementi*/
@@ -72,7 +72,7 @@ Inizio Regole Header
 /* Top Header */
 
 #top-header {
-  height:70px; /* Rimane da gestire l'eccezione del menu che si dispone su due righe*/ 
+  height:70px; /* Rimane da gestire l'eccezione del menu che si dispone su due righe*/
   padding-top: 15px;
   padding-bottom: 15px;
   /* Rimangono 40px di height a disposizione del contenuto */
@@ -146,5 +146,33 @@ h1 {
 /*
 ######################
 Fine Regole Header
+######################
+*/
+
+/*
+######################
+Inizio Regole Main
+######################
+*/
+
+main {
+  min-height: 100vh;
+  background-color: #f4f9fd;
+}
+
+main section {
+  margin-top:30px;
+  margin-bottom: 30px;
+}
+
+main #slogan .inner-wrapper .col-one-half {
+  height:300px;
+  width:100%;
+  background-color: red;
+}
+
+/*
+######################
+Fine Regole Main
 ######################
 */
