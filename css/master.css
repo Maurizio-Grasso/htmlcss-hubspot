@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+
+}
+
+.outer-wrapper {
+  /* Da attivare per passare a layout fixed */
+  /* max-width: 1200px; */
+  /* margin:auto; */
+}
+
+.inner-wrapper { /* l'area che sarà effettivamente occupata dalla maggior parte degli elementi*/
+  max-width: 1024px;
+  margin:auto;
+}
+
+
+
+
+
+/*
+Segnaposto da eliminare al termina della gestione del layout
+*/
+
+.tool-bar {
+  height:50px;
+  background-color: gray;
+}
+
+header {
+  height:400px;
+  background-color: pink;
+}
+
+main {
+  height:800px;
+  background-color: green;
+}
+
+footer {
+  height:100px;
+  background-color: black;
+}
