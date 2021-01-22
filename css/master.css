@@ -8,7 +8,13 @@ body {
   font-size: 16px;
   line-height: 27px;
   color: #33475b; /* Primary Color*/
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
 }
 
 .outer-wrapper {
@@ -24,20 +30,29 @@ body {
   padding-right: 15px;
 }
 
-/* Posizionamenti */
+/* Posizionamenti / Layout / Colonne */
+
+.height-large {
+  min-height: 500px;  /* altezza (minima) standard per alcuni componenti */
+}
 
 .float-left {
   float: left;
 }
 
-/* Layout e Colonne */
+.col-full-width {
+  width: 100%;
+}
 
 .col-one-half {
   width: 50%;
 }
 
-.col-one-third {
-  width: calc(100% / 3);
+.col-one-third { /* Layout a 3 colonne riutilizzabile (lascia 15px di gap da gestire con i margini)*/
+  width: calc((100% / 3) - 10px ); /* Genera un gap di 10px per ogni colonna */
+}
+.col-two-thirds {
+  width: calc((100% / 3)  * 2 - 5px ); /* Genera gap di 5 px*/
 }
 
 
@@ -49,9 +64,7 @@ Inizio Regole Tool Bar
 
 #tool-bar {
   height:70px;
-  background-color: blue;
-  border: 1px solid red;
-
+  background-color: blue; /* Provvisorio */
 }
 
 /*
@@ -67,7 +80,6 @@ Fine Regole Tool Bar
 Inizio Regole Header
 ######################
 */
-
 
 /* Top Header */
 
@@ -101,19 +113,16 @@ nav#main-menu {
   color:inherit;
   text-transform: capitalize;
 }
-
 #outer-nav nav#main-menu ul li:not(:nth-child(2)) a::after {
 content: " \25BC"; /* Da sostituire in seguito con font-awesome */
 }
-
-
 
 /* Bottom Header */
 
 #bottom-header {
   position: relative;
-  height: 500px;
-  padding-top: 50px;
+  /* padding-top: 50px; */
+  overflow:auto; /* permette di preservare il margine superiore del jumbotron*/
   background-image: url("../img/jumbotron.png");
   background-size: auto 100%;
   background-position: bottom right;
@@ -121,10 +130,14 @@ content: " \25BC"; /* Da sostituire in seguito con font-awesome */
   background-color: #fef5ee; /* colore simile a quello di sfondo dell'immagine*/
 }
 
+.jumbotron {
+  margin-top: 50px;
+}
+
 .separator {
   position: absolute;
   bottom: 0;
-  height:60px; /* =top bar */
+  height:60px;
   width: 100%;
   background-color: #afebe4;
   border-top: 2px solid #33475b;
@@ -156,23 +169,104 @@ Inizio Regole Main
 */
 
 main {
-  min-height: 100vh;
   background-color: #f4f9fd;
+  overflow: auto; /* Per gestire correttamente i margini */
 }
 
 main section {
   margin-top:30px;
   margin-bottom: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
+/* Slogan Section */
+
 main #slogan .inner-wrapper .col-one-half {
-  height:300px;
-  width:100%;
-  background-color: red;
+  text-align: center;
+  margin:auto;
+}
+
+#slogan .inner-wrapper .col-one-half img {
+  min-width: 50%;
+}
+
+/* Software Section */
+
+#popular-software .column {
+  background-color: white; /* provvisorio */
+}
+
+#popular-software .col-full-width {
+  margin-bottom: 15px; /* = al margine fra le 3 colonne sotto */
+}
+
+#popular-software .col-one-third:nth-child(2) {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+
+
+/* Regole Sezione Our Figures */
+
+section#our-figures {
+  background-color: #00aab8;
+  text-align: center;
+  color:white;
+}
+
+/* Regole Sezione Partners */
+
+section#partners {
+  background-color: white;
+}
+
+section#partners .col-two-thirds {
+  margin-left: 15px;
+}
+
+section#partners .column {
+  height:200px; /* provvisorio */
+  border: 1px solid black; /* provvisorio */
 }
 
 /*
 ######################
 Fine Regole Main
+######################
+*/
+
+/*
+######################
+Inizio Regole Footer
+######################
+*/
+
+footer {
+  background-color: #32495b;
+}
+
+/*
+######################
+Fine Regole Footer
+######################
+*/
+
+
+/*
+######################
+FEGATELLI
+(dettagli che non rientrano in sezioni specifiche)
+######################
+*/
+
+.add-shadow {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/*
+######################
+Fine FEGATELLI
 ######################
 */
