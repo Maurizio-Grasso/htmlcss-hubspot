@@ -5,11 +5,11 @@
 }
 
 body {
-  font-size: 16px;
-  line-height: 27px;
+  font-size: 18px;
   color: #33475b; /* Primary Color*/
   font-family: Helvetica, Arial, sans-serif;
 }
+
 
 .clearfix::after {
   content: '';
@@ -19,8 +19,8 @@ body {
 
 .outer-wrapper {
   /* Da attivare / disattivare per passare da layout full-width a boxed */
-  max-width: 1600px;
-  margin:auto;
+  /* max-width: 1600px; */
+  /* margin:auto; */
 }
 
 .inner-wrapper { /* l'area che sarà effettivamente occupata dalla maggior parte degli elementi*/
@@ -30,7 +30,24 @@ body {
   padding-right: 15px;
 }
 
+/* Tipografia generale */
+
+p {
+  line-height: 27px;
+  margin-bottom: 20px;
+}
+
+h1,
+h2,
+h3 {
+  margin-bottom: 20px;
+}
+
 /* Posizionamenti / Layout / Colonne */
+
+.height-small {
+  min-height: 60px;
+}
 
 .height-large {
   min-height: 500px;  /* altezza (minima) standard per alcuni componenti */
@@ -39,22 +56,51 @@ body {
 .float-left {
   float: left;
 }
+.float-right {
+  float:right;
+}
 
-.col-full-width {
+          /* Colonna larghezza piena */
+.full-width {
   width: 100%;
 }
 
+          /* Layout a due colonne (no gap) */
 .col-one-half {
   width: 50%;
 }
-
-.col-one-third { /* Layout a 3 colonne riutilizzabile (lascia 15px di gap da gestire con i margini)*/
-  width: calc((100% / 3) - 10px ); /* Genera un gap di 10px per ogni colonna */
+          /* Layout a 3 colonne
+          (lascia 15px di gap da gestire con i margini)*/
+.col-one-third {
+  width: calc((100% / 3) - 10px ); /* gap di 10px per ogni colonna */
 }
 .col-two-thirds {
-  width: calc((100% / 3)  * 2 - 5px ); /* Genera gap di 5 px*/
+  width: calc((100% / 3)  * 2 - 5px ); /*  gap di 5 px*/
 }
 
+          /* Layout a 4 colonne (no gap) */
+.col-one-fourth {
+  width:25%;
+}
+
+/*
+######################
+Inizio Regole Generali menu
+######################
+*/
+
+ul {
+  list-style: none;
+}
+ul.horizontal-list li {
+  display: inline-block;
+}
+ul.horizontal-list li:not(:first-child) {
+  padding-left: 15px; /* padding per tutti gli li ad eccezione del primo*/
+}
+ul.horizontal-list li:not(:last-child) {
+  padding-right: 15px; /* padding per tutti gli li ad eccezione dell'ultimo*/
+}
 
 /*
 ######################
@@ -63,16 +109,38 @@ Inizio Regole Tool Bar
 */
 
 #tool-bar {
-  height:70px;
-  background-color: blue; /* Provvisorio */
+  background-color: #f4f9fd;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-/*
-######################
-Fine Regole Tool Bar
-######################
-*/
 
+#tool-bar nav#top-left-menu ul li:not(:first-child) a {
+  /* la distanza fra gli elementi del primo menu è un po' superiore rispetto agli altri. Risolvo aggiungendo un po' di padding orizzontale a livello di <a> */
+  padding-left: 20px;
+}
+#tool-bar nav#top-left-menu ul li:not(:last-child) a {
+padding-right: 20px; /* come sopra */
+}
+
+#tool-bar nav#top-left-menu ul {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 20px; /* l'altezza risultante per gli elementi <li> e <a> */
+}
+#tool-bar nav#top-left-menu ul li:not(:last-child) {
+  border-right: 1px solid #33475b; /* il bordino che separa il primo dal secondo elemento */
+}
+
+#tool-bar nav#top-right-menu ul li {
+  height: 40px;
+  line-height: 40px; /* height == line-height (Di base contenuto centrato) */
+}
+
+#tool-bar a.btn {
+  padding: 0 20px 0;
+  line-height: 30px; /* gli <a> prendono l'altezza della line-height. Riduco la line-height per limitare l'altezza del pulsante. */
+}
 
 
 /*
@@ -81,47 +149,33 @@ Inizio Regole Header
 ######################
 */
 
-/* Top Header */
+          /* Top Header */
 
 #top-header {
-  height:70px; /* Rimane da gestire l'eccezione del menu che si dispone su due righe*/
-  padding-top: 15px;
-  padding-bottom: 15px;
-  /* Rimangono 40px di height a disposizione del contenuto */
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 #outer-logo img {
-  height: 40px;
+  height: 30px; /* è un po' meno alta dell'intero spazio a disposizione */
+  margin: 5px 0 5px 0; /* per centrarla anche a seguito del ridimensionameno sopra*/
+  display: block; /* Altrimenti lascia un piccolo margine ingestibile*/
 }
 
 nav#main-menu {
   text-align: right;
-}
-
-#outer-nav nav#main-menu ul li {
-  display: inline-block;
-  height:40px;
-}
-#outer-nav nav#main-menu ul li:not(:first-child) {
-  margin-left: 25px; /* margine per tutti gli li ad eccezione del primo*/
-  /* Poi vedi se estendere anche ad altri menu*/
-}
-
-#outer-nav nav#main-menu ul li a {
-  line-height: 40px;
-  text-decoration: none;
-  color:inherit;
+  line-height: 40px; /* == all'altezza a disposizione, quindi centra tutto*/
   text-transform: capitalize;
 }
-#outer-nav nav#main-menu ul li:not(:nth-child(2)) a::after {
+
+nav#main-menu ul li:not(:nth-child(2)) a::after {
 content: " \25BC"; /* Da sostituire in seguito con font-awesome */
 }
 
-/* Bottom Header */
+          /* Bottom Header */
 
 #bottom-header {
   position: relative;
-  /* padding-top: 50px; */
   overflow:auto; /* permette di preservare il margine superiore del jumbotron*/
   background-image: url("../img/jumbotron.png");
   background-size: auto 100%;
@@ -137,8 +191,6 @@ content: " \25BC"; /* Da sostituire in seguito con font-awesome */
 .separator {
   position: absolute;
   bottom: 0;
-  height:60px;
-  width: 100%;
   background-color: #afebe4;
   border-top: 2px solid #33475b;
   border-bottom: 2px solid #33475b;
@@ -147,20 +199,7 @@ content: " \25BC"; /* Da sostituire in seguito con font-awesome */
 h1 {
   font-size: 45px;
   line-height: 55px;
-  margin-bottom: 20px;
 }
-
-.call-to-action {
-  display: inline-block;
-  margin-top: 25px;
-  margin-bottom: 25px;
-}
-
-/*
-######################
-Fine Regole Header
-######################
-*/
 
 /*
 ######################
@@ -169,46 +208,52 @@ Inizio Regole Main
 */
 
 main {
-  background-color: #f4f9fd;
   overflow: auto; /* Per gestire correttamente i margini */
 }
 
-main section {
-  margin-top:30px;
-  margin-bottom: 30px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+main section {  /* Tutte le section discendenti dirette di main*/
+  /* margin-top:30px; */
+  /* margin-bottom: 30px; */
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
-/* Slogan Section */
+main .column {
+padding: 2%;
+}
 
-main #slogan .inner-wrapper .col-one-half {
+
+            /* Popular Software Section */
+
+section#popular-software {
+  background-color: #f4f9fd;
   text-align: center;
-  margin:auto;
 }
 
-#slogan .inner-wrapper .col-one-half img {
-  min-width: 50%;
+section#popular-software .inner-wrapper > img:first-child {
+  /* L'immagine che appare come primo elemento della sezione */
+  max-height: 200px;
 }
 
-/* Software Section */
-
-#popular-software .column {
-  background-color: white; /* provvisorio */
+section#popular-software .column ,
+section#popular-software .full-width { /* tutte le colonne */
+  background-color: white;
 }
 
-#popular-software .col-full-width {
-  margin-bottom: 15px; /* = al margine fra le 3 colonne sotto */
+section#popular-software .column img { /* immagini all'interno di colonne */
+  height: 120px;
 }
 
-#popular-software .col-one-third:nth-child(2) {
+#popular-software .full-width { /* il container delle due colonne da 1/3 + 2/3*/
+  margin-bottom: 15px;
+}
+
+#popular-software .col-one-third:nth-child(2) { /* la seconda delle tre colonne */
   margin-right: 15px;
   margin-left: 15px;
 }
 
-
-
-/* Regole Sezione Our Figures */
+          /* Regole Sezione Our Figures */
 
 section#our-figures {
   background-color: #00aab8;
@@ -216,26 +261,25 @@ section#our-figures {
   color:white;
 }
 
-/* Regole Sezione Partners */
+          /* Regole Sezione Partners */
 
 section#partners {
-  background-color: white;
-}
-
-section#partners .col-two-thirds {
-  margin-left: 15px;
+  background-color: white; /* superfluo */
 }
 
 section#partners .column {
-  height:200px; /* provvisorio */
+  min-height:200px; /* provvisorio */
   border: 1px solid black; /* provvisorio */
 }
 
-/*
-######################
-Fine Regole Main
-######################
-*/
+section#partners .column.col-one-half:last-child {
+  text-align: right;
+}
+
+section#partners #testimonial {
+  max-width: 50%;
+}
+
 
 /*
 ######################
@@ -245,13 +289,35 @@ Inizio Regole Footer
 
 footer {
   background-color: #32495b;
+  color:white;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
-/*
-######################
-Fine Regole Footer
-######################
-*/
+footer ul:not(.horizontal-list) li {
+  margin-bottom: 15px;
+}
+
+footer .col-one-fourth > ul:not(.horizontal-list) > li:first-child {
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+footer ul:not(.horizontal-list) li:not(:first-child) {
+  font-size: 80%;
+}
+
+nav#language-bar {
+  text-align: center;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid white;
+}
+
+#outer-copyright #copyright-text {
+  display: block;
+}
+
 
 
 /*
@@ -261,12 +327,34 @@ FEGATELLI
 ######################
 */
 
+
+
 .add-shadow {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+a { /* Reset colori e decoration dei link */
+  text-decoration: none;
+  color:inherit;
+}
+
+a.btn.orange {
+  background-color: orange;
+  color: white;
+}
+
+a.btn.white {
+  background-color: white;
+  color: orange;
+  border: 1px solid orange;
+}
+
+a.btn {
+  display: inline-block;
+  padding: 10px 30px;
+  border-radius: 5px;
+}
+
 /*
-######################
-Fine FEGATELLI
-######################
+Special thanks to https://web.archive.org/web/20191014211559/https://www.hubspot.com/ for all images and logos :-)
 */

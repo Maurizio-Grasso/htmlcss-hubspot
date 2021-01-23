@@ -2,6 +2,9 @@
 <html lang="it" dir="ltr">
   <head>
     <!-- Link ad eventuali font -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+
     <link rel="stylesheet" href="css/master.css">
     <meta charset="utf-8">
     <title>Hubspot</title>
@@ -10,23 +13,41 @@
 
 <div class="outer-wrapper"> <!-- Outer Wrapper Start -->
 
-    <div id="tool-bar">
+    <div id="tool-bar" class="height-small">  <!-- Tool bar Start -->
       <!-- Barra superiore con seletore della lingua e link navigazionali -->
-    </div>
+      <div class="inner-wrapper"> <!-- Inner Wrapper Start -->
+        <nav id="top-left-menu" class="float-left">
+          <ul class="horizontal-list">
+            <li><a href="#">english</a></li>
+            <li><a href="#">contact us</a></li>
+          </ul>
+        </nav>
+
+        <nav id="top-right-menu" class="float-right">
+          <ul class="horizontal-list">
+            <li><a href="#">p.holder.lente</a></li>
+            <li><a class="btn white" href="#">log in</a></li>
+            <li><a class="btn orange" href="#">GetHubSpotFree</a></li>
+          </ul>
+        </nav>
+
+      </div>  <!-- Inner Wrapper End -->
+
+    </div>  <!-- Tool bar End -->
 
     <header> <!-- Header Start -->
 
-      <div id="top-header">  <!-- Top Header Start-->
+      <div id="top-header" class="height-small">  <!-- Top Header Start-->
         <div class="inner-wrapper clearfix">
           <!-- i menu -->
-          <div id="outer-logo" class="col-one-half float-left">
+          <div id="outer-logo" class="col-one-third float-left">
             <img src="img/logo.svg" alt="logo Hubspot">
           </div>
 
-          <div id="outer-nav" class="col-one-half float-left">
+          <div id="outer-nav" class="col-two-thirds float-right">
 
             <nav id="main-menu">
-              <ul>
+              <ul class="horizontal-list">
                 <li><a href="#">software</a></li>
                 <li><a href="#">pricing</a></li>
                 <li><a href="#">resources</a></li>
@@ -48,7 +69,7 @@
 
             <p>Marketing, sales, and service software that helps your business grow without compromise. Because “good for the business” should also mean “good for the customer.”</p>
 
-            <a class="btn call-to-action" href="#">Call to Action</a>
+            <a class="btn orange" href="#">Call to Action</a>
 
             <p>Get started with FREE tools, and upgrade as you grow.</p>
 
@@ -57,7 +78,7 @@
 
         </div><!-- Inner Wrapper End -->
 
-        <div class="separator">
+        <div class="separator full-width height-small">
           <!-- distanziatore  -->
         </div>
 
@@ -67,28 +88,80 @@
 
     <main> <!-- Main Start -->
 
-      <section id="slogan"> <!-- Slogan Section Start -->
-
-        <!-- Parte superiore del main con slogan e immagine -->
-
-        <div class="inner-wrapper">
-          <div class="col-one-half">
-            <img src="https://www.hubspot.com/hubfs/integrations%20illustration%202.svg">
-            <h2>Powerful alone. Better toghether</h2>
-            <p>HubSpot offers a complete CRM platform with all the tools and integrations you need to grow better — whether you want to increase leads, accelerate sales, streamline customer service, or build a powerful website. They’re powerful alone, but even better when used together.</p>
-          </div>
-        </div>
-      </section>
-
       <section id="popular-software"> <!-- Popular Software Section Start -->
 
-        <div class="inner-wrapper"> <!-- Inner wrapper Start -->
-          <div class="column col-full-width add-shadow">placeholder</div>
-          <div class=" clearfix">
-            <div class="column col-one-third height-large float-left add-shadow"></div>
-            <div class="column col-one-third height-large float-left add-shadow"></div>
-            <div class="column col-one-third height-large float-left add-shadow"></div>
-        </div>
+        <div class="inner-wrapper">
+          <!-- <div class="col-one-half"> -->
+            <img src="img/cube.png">
+            <h2>Powerful alone. Better toghether</h2>
+            <p>HubSpot offers a complete CRM platform with all the tools and integrations you need to grow better — whether you want to increase leads, accelerate sales, streamline customer service, or build a powerful website. They’re powerful alone, but even better when used together.</p>
+          <!-- </div> -->
+
+          <div class="full-width add-shadow clearfix"> <!-- Container 2 colonne (1/3 + 2/3) -->
+
+            <div class="column col-one-third float-left">
+              <img src="img/crm.svg" alt="">
+              <a class="btn orange" href="#">learn more</a>
+            </div>
+
+            <div class="column col-two-thirds float-right">
+              <h3>Some content</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <hr>
+              <h4>some content</h4>
+              <ul class="horizontal-list">
+                <li>item</li>
+                <li>item</li>
+                <li>item</li>
+              </ul>
+            </div>
+
+          </div><!-- Container 2 colonne End -->
+
+          <div class=" clearfix"> <!-- container delle 3 colonne (3 * 1/3) -->
+
+            <div class="column col-one-third height-large float-left add-shadow">
+              <img src="img/marketing-hub.svg" alt="">
+              <h3>Some content</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <hr>
+              <h4>some content</h4>
+              <ul>
+                <li>item</li>
+                <li>item</li>
+                <li>item</li>
+              </ul>
+              <a class="btn orange" href="#">learn more</a>
+            </div>
+
+            <div class="column col-one-third height-large float-left add-shadow">
+              <img src="img/sales.svg" alt="">
+              <h3>Some content</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <hr>
+              <h4>some content</h4>
+              <ul>
+                <li>item</li>
+                <li>item</li>
+                <li>item</li>
+              </ul>
+              <a class="btn orange" href="#">learn more</a>
+            </div>
+            <div class="column col-one-third height-large float-left add-shadow">
+              <img src="img/service.svg" alt="">
+              <h3>Some content</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <hr>
+              <h4>some content</h4>
+              <ul>
+                <li>item</li>
+                <li>item</li>
+                <li>item</li>
+              </ul>
+              <a class="btn orange" href="#">learn more</a>
+            </div>
+
+        </div> <!-- Container 3 colonne End -->
 
         </div>  <!-- Inner wrapper End -->
 
@@ -111,30 +184,139 @@
       </section> <!-- Our Figures Section End -->
 
       <section id="partners" class="height-large"> <!-- Parters Section Start -->
-        <div class="inner-wrapper">
-        <div class="clearfix">
+        <div class="inner-wrapper"> <!-- Inner Wrapper Start -->
 
-        <div class="column col-one-third float-left">
+          <div class="clearfix"> <!-- Row (1/3 + 2/3) Start -->
 
-        </div>
+            <div class="column col-one-third float-left">
+              64,500
+              <br>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit
+            </div>
+            <div class="column col-two-thirds float-right">
+              <ul class="horizontal-list">
+                <li> <img src="img/img.png" alt="logo"> </li>
+                <li> <img src="img/img.png" alt="logo"> </li>
+                <li> <img src="img/img.png" alt="logo"> </li>
+                <li> <img src="img/img.png" alt="logo"> </li>
+                <li> <img src="img/img.png" alt="logo"> </li>
+                <li> <img src="img/img.png" alt="logo"> </li>
+                <li> <img src="img/img.png" alt="logo"> </li>
+                <li> <img src="img/img.png" alt="logo"> </li>
+              </ul>
+            </div>
 
-        <div class="column col-two-thirds float-left">
-        </div>
+          </div>  <!-- Row (1/3 + 2/3) End -->
 
-        </div>
+          <div class="clearfix">  <!-- Row (1/2 + 1/2) Start -->
 
-        <div class="clearfix">
-          <div class="column col-one-half float-left"></div>
-          <div class="column col-one-half float-left"></div>
-        </div>
-      </div>
+            <div class="column col-one-half float-left">
+              <h2>Start Growing With HubSpot Today</h2>
+              <p>With tools to make every part of your process more human and a support team excited to help you, getting started with inbound has never been easier.</p>
+              <a class="btn orange" href="#">Get Hubspot free</a>
+              <p> Get started with FREE tools, or get more with our premium software.</p>
+            </div>
+            <div class="column col-one-half float-right">
+              <img id="testimonial" src="img/woman.webp" alt="testimonial">
+            </div>
+
+          </div>  <!-- Row (1/2 + 1/2) End -->
+
+      </div> <!-- Inner Wrapper End -->
       </section> <!-- Partner Section End -->
 
     </main> <!-- Main End -->
 
     <footer> <!-- footer Start -->
       <div class="inner-wrapper height-large">
-        <!-- contenuto footer -->
+
+        <div class="clearfix"> <!-- Menu Container START -->
+
+          <nav class="col-one-fourth float-left"> <!-- 1st Menu Start -->
+            <ul>
+              <li><a href="">Increase Your Traffic</a></li>
+              <li><a href="">Ad Software</a></li>
+              <li><a href="">Blog Software</a></li>
+              <li><a href="">SEO Software</a></li>
+              <li><a href="">Social Media Software</a></li>
+              <li><a href="">Content Management System</a></li>
+            </ul>
+          </nav> <!-- 1st Menu END -->
+
+          <nav class="col-one-fourth float-left"> <!-- 2nd Menu Start -->
+            <ul>
+              <li><a href="">Connect With Leads</a></li>
+              <li><a href="">Find New Prospects</a></li>
+              <li><a href="">Email Tracking</a></li>
+              <li><a href="">Sales Email Templates</a></li>
+              <li><a href="">Click to Call Your Leads</a></li>
+              <li><a href="">Email Marketing</a></li>
+            </ul>
+          </nav> <!-- 2nd Menu END -->
+
+          <nav class="col-one-fourth float-left"> <!-- 3rd Menu Start -->
+            <ul>
+              <li><a href="">Close and Manage Leads</a></li>
+              <li><a href="">Document Tracking Tool</a></li>
+              <li><a href="">Meeting Schedule Tool</a></li>
+              <li><a href="">Sales Automation Tool</a></li>
+              <li><a href="">Lead Management Tool</a></li>
+              <li><a href="">Pipeline Management Tool</a></li>
+            </ul>
+          </nav> <!-- 3rd Menu END -->
+
+          <nav class="col-one-fourth float-left"> <!-- 4th Menu Start -->
+            <ul>
+              <li><a href="">Support and Tools</a></li>
+              <li><a href="">HubSpot Partners</a></li>
+              <li><a href="">Join a Local User Group</a></li>
+              <li><a href="">Get a Free Website Report</a></li>
+              <li><a href="">Free Tools & Generators</a></li>
+              <li><a href="">HubSpot Templates</a></li>
+              <li><a href="">Contact HubSpot Support</a></li>
+              <li>
+                <ul class="horizontal-list" id="social-list">
+                  <li><a href="">Facebook</a></li>
+                  <li><a href="">Instagram</a></li>
+                  <li><a href="">Youtube</a></li>
+                  <li><a href="">Twitter</a></li>
+                  <li><a href="">Linkedin</a></li>
+                  <li><a href="">Medium</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav> <!-- 4th Menu END -->
+
+        </div> <!-- Menu container End -->
+
+        <div id="#footer-bottom-bar" class="clearfix"> <!-- Footer Bottom Bar START -->
+
+          <nav id="language-bar" class="float-left full-width">   <!-- Language Bar START -->
+            <ul class="horizontal-list">
+              <li><a href="">English</a></li>
+              <li><a href="">Deutsch</a></li>
+              <li><a href="">日本語</a></li>
+              <li><a href="">Español</a></li>
+              <li><a href="">Português</a></li>
+              <li><a href="">Français</a></li>
+            </ul>
+          </nav>  <!-- Language Bar END -->
+
+          <div id="outer-copyright" class="float-left"> <!-- Copyright area START -->
+            <img src="img/logo-gray.svg" alt="logo hubspot">
+            <span id="copyright-text">Copyright &copy; 2021 HubSpot, Inc.</span>
+          </div>  <!-- Copyright area END -->
+
+          <nav id="legal-menu" class="float-right"> <!-- Legal Menu START -->
+            <ul class="horizontal-list">
+              <li>legal stuff</li>
+              <li>privacy policy</li>
+            </ul>
+          </nav>   <!-- Legal Menu END -->
+
+        </div>  <!-- Footer Bottom Bar END -->
+
+
       </div>
     </footer> <!-- footer End -->
 
