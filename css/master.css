@@ -4,9 +4,12 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 10px;
+}
 body {
-  font-size: 18px;
-  color: #33475b; /* Primary Color*/
+  font-size: 1.6rem;  /* ereditato da tutto salvo sovrascritture */
+  color: #33475b;   /* Primary Color*/
   font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -20,7 +23,7 @@ body {
 .outer-wrapper {
   /* Da attivare / disattivare per passare da layout full-width a boxed */
   /* max-width: 1600px; */
-  /* margin:auto; */
+  margin:auto;
 }
 
 .inner-wrapper { /* l'area che sarà effettivamente occupata dalla maggior parte degli elementi*/
@@ -28,6 +31,7 @@ body {
   margin: auto;
   padding-left: 15px;
   padding-right: 15px;
+  position: relative;
 }
 
 /* Tipografia generale */
@@ -39,18 +43,39 @@ p {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   margin-bottom: 20px;
+}
+
+a { /* Reset colori e decoration dei link */
+  text-decoration: none;
+  color:inherit;
+}
+
+h1 ,
+.bigger-text {
+  font-size: 4.5rem;
+  line-height: 50px;
+}
+
+.smaller-text {
+  font-size: 1.4rem;
 }
 
 /* Posizionamenti / Layout / Colonne */
 
+
 .height-small {
-  min-height: 60px;
+  min-height: 70px;
+}
+
+.height-medium {
+  min-height: 350px;
 }
 
 .height-large {
-  min-height: 500px;  /* altezza (minima) standard per alcuni componenti */
+  min-height: 550px;  /* altezza (minima) standard per alcuni componenti */
 }
 
 .float-left {
@@ -60,17 +85,49 @@ h3 {
   float:right;
 }
 
+.place-on-bottom ,
+.align-y ,
+.align-v ,
+.align-x-y {
+  position: absolute;
+  padding-right: inherit;
+  padding-left: inherit;
+}
+
+.align-x {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.align-y {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.align-x-y {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50% , -50%);
+}
+
+.place-on-bottom {  /* Posiziona alcuni elementi in fondo al loro contenitore per evtare di lasciare uno spazio vuoto troppo ampio*/
+  bottom: 0;
+}
+
           /* Colonna larghezza piena */
+
 .full-width {
   width: 100%;
 }
 
           /* Layout a due colonne (no gap) */
+
 .col-one-half {
   width: 50%;
 }
           /* Layout a 3 colonne
           (lascia 15px di gap da gestire con i margini)*/
+
 .col-one-third {
   width: calc((100% / 3) - 10px ); /* gap di 10px per ogni colonna */
 }
@@ -102,6 +159,36 @@ ul.horizontal-list li:not(:last-child) {
   padding-right: 15px; /* padding per tutti gli li ad eccezione dell'ultimo*/
 }
 
+/* Pulsanti  */
+
+a.btn.orange {
+  background-color: #fe775a;
+  color: white;
+}
+
+a.btn.white {
+  background-color: white;
+  color: #fe775a;
+  border: 1px solid #fe775a;
+}
+
+a.btn.gray {
+  background-color: lightgray;
+  color: #33475b;
+}
+
+a.btn {
+  padding: 15px 25px;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: block;
+  text-align: center;
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /*
 ######################
 Inizio Regole Tool Bar
@@ -110,38 +197,48 @@ Inizio Regole Tool Bar
 
 #tool-bar {
   background-color: #f4f9fd;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 
+#tool-bar nav#top-left-menu {
+  left:0;
+  padding-left: inherit;  /* Riprendi il padding dell'inner-wrapper*/
+}
+#tool-bar nav#top-right-menu {
+  right:0;
+  padding-right: inherit; /* Riprendi il padding dell'inner-wrapper*/
+}
 
+#tool-bar nav#top-left-menu ul li:not(:last-child) {
+  border-right: 1px solid #33475b; /* il bordino che separa il primo dal secondo elemento nel menu di destra*/
+}
 #tool-bar nav#top-left-menu ul li:not(:first-child) a {
   /* la distanza fra gli elementi del primo menu è un po' superiore rispetto agli altri. Risolvo aggiungendo un po' di padding orizzontale a livello di <a> */
   padding-left: 20px;
 }
 #tool-bar nav#top-left-menu ul li:not(:last-child) a {
-padding-right: 20px; /* come sopra */
+  padding-right: 20px; /* come sopra */
 }
 
-#tool-bar nav#top-left-menu ul {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  line-height: 20px; /* l'altezza risultante per gli elementi <li> e <a> */
-}
-#tool-bar nav#top-left-menu ul li:not(:last-child) {
-  border-right: 1px solid #33475b; /* il bordino che separa il primo dal secondo elemento */
+nav#top-left-menu ul li:first-child a::before {
+  font-family: "Font Awesome 5 Free";
+  content: " \f7a2";
+  padding-right: 10px;
+  font-weight: 900;
 }
 
-#tool-bar nav#top-right-menu ul li {
-  height: 40px;
-  line-height: 40px; /* height == line-height (Di base contenuto centrato) */
+nav#top-right-menu ul li a#search-placeholder::after {
+  font-family: "Font Awesome 5 Free";
+  content: " \f002";
+  padding-left: 10px;
+  font-weight: 900;
+  color: #00aab8;
 }
 
 #tool-bar a.btn {
-  padding: 0 20px 0;
-  line-height: 30px; /* gli <a> prendono l'altezza della line-height. Riduco la line-height per limitare l'altezza del pulsante. */
+  display: inline-block;
+  padding: 8px 20px;  /* sovrascrive padding */
+  margin: 0;    /* sovrascrive margin */
 }
-
 
 /*
 ######################
@@ -151,27 +248,21 @@ Inizio Regole Header
 
           /* Top Header */
 
-#top-header {
-  padding-top: 10px;
-  padding-bottom: 10px;
+#outer-logo {
+  left: 0;
+}
+#outer-nav {
+  right: 0;
 }
 
 #outer-logo img {
-  height: 30px; /* è un po' meno alta dell'intero spazio a disposizione */
-  margin: 5px 0 5px 0; /* per centrarla anche a seguito del ridimensionameno sopra*/
-  display: block; /* Altrimenti lascia un piccolo margine ingestibile*/
+  display: block;
 }
 
 nav#main-menu {
   text-align: right;
-  line-height: 40px; /* == all'altezza a disposizione, quindi centra tutto*/
   text-transform: capitalize;
 }
-
-nav#main-menu ul li:not(:nth-child(2)) a::after {
-content: " \25BC"; /* Da sostituire in seguito con font-awesome */
-}
-
           /* Bottom Header */
 
 #bottom-header {
@@ -188,6 +279,11 @@ content: " \25BC"; /* Da sostituire in seguito con font-awesome */
   margin-top: 50px;
 }
 
+.jumbotron a.btn {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .separator {
   position: absolute;
   bottom: 0;
@@ -196,10 +292,7 @@ content: " \25BC"; /* Da sostituire in seguito con font-awesome */
   border-bottom: 2px solid #33475b;
 }
 
-h1 {
-  font-size: 45px;
-  line-height: 55px;
-}
+
 
 /*
 ######################
@@ -212,16 +305,13 @@ main {
 }
 
 main section {  /* Tutte le section discendenti dirette di main*/
-  /* margin-top:30px; */
-  /* margin-bottom: 30px; */
   padding-top: 30px;
   padding-bottom: 30px;
 }
 
 main .column {
-padding: 2%;
+padding: 15px;
 }
-
 
             /* Popular Software Section */
 
@@ -235,22 +325,68 @@ section#popular-software .inner-wrapper > img:first-child {
   max-height: 200px;
 }
 
-section#popular-software .column ,
-section#popular-software .full-width { /* tutte le colonne */
+section#popular-software .row-1 ,
+section#popular-software .row-2 .column { /* tutte le colonne */
   background-color: white;
 }
 
 section#popular-software .column img { /* immagini all'interno di colonne */
-  height: 120px;
+height: 120px;
 }
 
-#popular-software .full-width { /* il container delle due colonne da 1/3 + 2/3*/
+#popular-software hr {
+  margin: 20px auto;
+}
+
+#popular-software .row-1 h4 {
+  width: 29%;
+  text-align: left;
+  display: inline-block;
+}
+
+#popular-software .row-1 hr {
+  width: 70%;
+  display: inline-block;
+  position: relative;
+  bottom:4px;
+  margin: 0;
+}
+
+section#popular-software .column {
+  position: relative;
+}
+
+#popular-software .row-1 ul {
+  text-align: left;
+}
+
+#popular-software .row-1 {
   margin-bottom: 15px;
 }
 
-#popular-software .col-one-third:nth-child(2) { /* la seconda delle tre colonne */
+#popular-software .row-2 .col-one-third:nth-child(2) { /* la seconda delle tre colonne */
   margin-right: 15px;
   margin-left: 15px;
+}
+
+#popular-software .row-2 ul li {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+#popular-software ul li::before {
+  font-family: "Font Awesome 5 Free";
+  content: " \f078";
+  display: inline-block;
+  margin-right: 15px;
+  font-weight: 900;
+  background-color: #fe775a;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
 }
 
           /* Regole Sezione Our Figures */
@@ -261,25 +397,61 @@ section#our-figures {
   color:white;
 }
 
-          /* Regole Sezione Partners */
-
-section#partners {
-  background-color: white; /* superfluo */
+#figures-table {
+  margin: 30px auto;
 }
 
-section#partners .column {
-  min-height:200px; /* provvisorio */
-  border: 1px solid black; /* provvisorio */
+#figures-table > div:not(:last-child) {
+  border-bottom: 1px solid white; /* bordino inferiore dato solo al primo row (o "a tutti tranne l'ultimo", nel caso si volesse aggiugnere una riga in futuro)*/
 }
 
-section#partners .column.col-one-half:last-child {
-  text-align: right;
+#figures-table .column.col-one-fourth:not(:last-child) {
+  border-right: 1px solid white; /* bordino destro assegnato ad ogni cella tranne l'ultima di ogni riga */
 }
 
-section#partners #testimonial {
+#figures-table .column.col-one-fourth > * { /* qualunque cosa sia contenuto nella cella*/
+  display: block;
+  margin:auto;
+  height: 50px;
+  line-height: 50px;
+}
+
+#figures-table .column.col-one-fourth > img {
+  margin-bottom: 20px;
   max-width: 50%;
 }
 
+#figures-table .bigger-text::after {
+  content: "+";
+  padding-left: 10px;
+}
+
+          /* Regole Sezione Partners */
+
+section#partners .row-2 .col-one-half:first-child {
+  position: relative;
+}
+
+section#partners .row-1 .col-one-half:first-child {
+  text-align: center;
+}
+section#partners .row-1 .col-one-half:first-child .bigger-text {
+  line-height: 70px;
+}
+
+.row-1 ul#logo-partners li.col-one-fourth {
+  position: relative;
+}
+.row-1 ul#logo-partners li.col-one-fourth img {
+  max-width: 80%;
+}
+
+section#partners .row-2 .col-one-half:last-child img {
+  max-height: 300px;
+}
+section#partners .row-2 .col-one-half:last-child {
+  text-align: right; /* L'immagine della signorina è allineata a destra*/
+}
 
 /*
 ######################
@@ -303,8 +475,8 @@ footer .col-one-fourth > ul:not(.horizontal-list) > li:first-child {
   margin-bottom: 25px;
 }
 
-footer ul:not(.horizontal-list) li:not(:first-child) {
-  font-size: 80%;
+footer .smaller-text ul:not(.horizontal-list) li:first-child {
+  font-size: initial;
 }
 
 nav#language-bar {
@@ -318,8 +490,6 @@ nav#language-bar {
   display: block;
 }
 
-
-
 /*
 ######################
 FEGATELLI
@@ -327,34 +497,18 @@ FEGATELLI
 ######################
 */
 
-
+hr {
+  border-top-width: 0;
+  border-color: lightgray;
+}
 
 .add-shadow {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-a { /* Reset colori e decoration dei link */
-  text-decoration: none;
-  color:inherit;
+.add-chevron::after { /* Aggiugne triangolino alle voci del menu*/
+  font-family: "Font Awesome 5 Free";
+  content: " \f078";
+  padding-left: 10px;
+  font-weight: 900;
 }
-
-a.btn.orange {
-  background-color: orange;
-  color: white;
-}
-
-a.btn.white {
-  background-color: white;
-  color: orange;
-  border: 1px solid orange;
-}
-
-a.btn {
-  display: inline-block;
-  padding: 10px 30px;
-  border-radius: 5px;
-}
-
-/*
-Special thanks to https://web.archive.org/web/20191014211559/https://www.hubspot.com/ for all images and logos :-)
-*/
