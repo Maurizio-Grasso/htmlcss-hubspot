@@ -21,8 +21,8 @@ body {
 
 .outer-wrapper {
   /* Da attivare / disattivare per passare da layout full-width a boxed */
-  max-width: 1600px;
-  margin:auto;
+  /* max-width: 1600px; */
+  margin: 70px auto 0 auto;
 }
 
 .inner-wrapper { /* l'area che sarà effettivamente occupata dalla maggior parte degli elementi*/
@@ -200,6 +200,13 @@ Regole Tool Bar
 
 #tool-bar {
   background-color: #f4f9fd;
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index: 1;
+  max-width: inherit;
+  margin: auto;
 }
 
 #tool-bar nav#top-left-menu {
@@ -314,7 +321,10 @@ section#popular-software {
   text-align: center;
 }
 
-section#popular-software .inner-wrapper > img:first-child { /* L'immagine in alto nella sezione */
+section#popular-software .inner-wrapper > .col-two-thirds { /* parte superiore della sezione*/
+  margin:auto;
+}
+section#popular-software .inner-wrapper > .col-two-thirds img { /* L'immagine in alto nella sezione */
   max-height: 200px;
 }
 
@@ -436,6 +446,11 @@ section#partners .row-1 .col-one-half:first-child {
 }
 section#partners .row-1 .col-one-half:first-child .bigger-text {
   line-height: 70px; /* = all'altezza del div */
+}
+
+section#partners .row-1 .col-one-half p {
+  max-width: 60%;
+  margin: auto;
 }
 
 section#partners .row-1 ul#logo-partners li.col-one-fourth {
