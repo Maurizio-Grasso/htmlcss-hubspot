@@ -22,7 +22,7 @@ body {
 
 .outer-wrapper {
   /* Da attivare / disattivare per passare da layout full-width a boxed */
-  /* max-width: 1600px; */
+  max-width: 1600px;
   margin:auto;
 }
 
@@ -112,6 +112,7 @@ h1 ,
 
 .place-on-bottom {  /* Posiziona alcuni elementi in fondo al loro contenitore per evtare di lasciare uno spazio vuoto troppo ampio*/
   bottom: 0;
+  width: 100%;
 }
 
           /* Colonna larghezza piena */
@@ -281,7 +282,6 @@ nav#main-menu {
 
 .jumbotron a.btn {
   margin-left: 0;
-  margin-right: 0;
 }
 
 .separator {
@@ -372,6 +372,13 @@ section#popular-software .column {
 #popular-software .row-2 ul li {
   text-align: left;
   margin-bottom: 10px;
+}
+
+#popular-software  .btn {
+  display: inline-block;
+}
+#popular-software .place-on-bottom {
+  text-align: center;
 }
 
 #popular-software ul li::before {
@@ -479,16 +486,40 @@ footer .smaller-text ul:not(.horizontal-list) li:first-child {
   font-size: initial;
 }
 
-nav#language-bar {
+footer nav#language-bar {
   text-align: center;
   padding-bottom: 20px;
   margin-bottom: 20px;
   border-bottom: 1px solid white;
 }
 
+footer .btn {
+  max-width: 200px;
+  padding: 10px 15px;
+  margin-left: 0;
+}
+
+footer ul#social-list li {
+  padding-right:8px;
+}
+
+footer #legal-bar {
+  position: relative;
+}
+
+footer #legal-bar img {
+  left:0;
+}
+
+footer #legal-bar nav {
+  right: 0;
+}
+
 #outer-copyright #copyright-text {
   display: block;
 }
+
+
 
 /*
 ######################
